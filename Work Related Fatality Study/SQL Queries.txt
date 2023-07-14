@@ -1,0 +1,154 @@
+1. What is the number of reported incidents?
+
+SELECT COUNT(id) AS Incidents_count 
+FROM fatalities_cleaned;
+
+2. What is the year to year change for the number of fatal incidents?
+
+SELECT
+    year,
+    incident_count,
+    lagged_count,
+    ROUND(100 * (incident_count - lagged_count) / lagged_count) AS Pct_change
+FROM
+    (
+        SELECT
+            EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS year,
+            COUNT(*) AS incident_count,
+            LAG(COUNT(*)) OVER (ORDER BY EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y'))) AS lagged_count
+        FROM
+            fatalities_cleaned
+        GROUP BY
+            year
+    ) AS subquery
+WHERE
+    year != '2022'
+ORDER BY
+    year;
+
+Using CTE:-
+-----------
+with cte as(
+select EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS year, count(1) as total_incidents, LAG(COUNT(*)) OVER (ORDER BY EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y'))) as ld
+from fatalities_cleaned
+where year(incident_date)!= '2022'
+group by year
+select year, total_incidents,ld,round(100.0*(total_incidents-ld)/ld) from cte;
+
+
+3. What is the number of fatalities that received a citation?
+
+SELECT COUNT(id) AS Incidents_count_Citation
+FROM fatalities_cleaned 
+WHERE citation = "yes"
+
+4. What day of the week has the most fatalities and what is the overall percentage?
+
+SELECT
+    day_of_week,
+    COUNT(id) AS Count_of_fatalities,
+    round(COUNT(id) * 100 / (SELECT COUNT(id) FROM fatalities_cleaned),2) AS Overall_percentage
+FROM
+    fatalities_cleaned
+GROUP BY
+    day_of_week
+ORDER BY
+    Count_of_fatalities DESC, Overall_percentage DESC;
+
+
+5. What is the number of fatalities involving welding?
+
+SELECT DISTINCT COUNT(*) AS fatalities_involving_welding
+FROM fatalities_cleaned 
+WHERE lower(description) LIKE '%weld%'
+
+6. Select the last 5 from the previous query
+
+SELECT
+    *
+FROM
+    fatalities_cleaned
+WHERE
+    description LIKE '%weld%'
+ORDER BY
+    incident_date DESC
+LIMIT 5;
+
+
+7.  Select the top 5 states with the most fatal incidents.
+
+SELECT state, COUNT(id) AS Incidents_Count
+FROM fatalities_cleaned 
+GROUP BY state 
+ORDER BY Incidents_Count DESC
+LIMIT 5
+
+8. What are the top 5 states that had the most workplace fatalities from stabbings?
+
+SELECT
+    count(id) AS Total_count, state
+FROM
+    fatalities_cleaned
+WHERE
+    description LIKE '%stabbed%'
+GROUP BY
+    state
+ORDER BY
+    Total_count DESC
+LIMIT 5;
+
+9. What are the top 10 states that had the most workplace fatalities from shootings?
+
+Actual one:-
+---------
+SELECT
+    state,
+    COUNT(*) AS fatalities_count
+FROM
+    fatalities_cleaned
+WHERE
+    description LIKE '%shooting%'
+    AND description NOT LIKE '%troubleshooting%'
+GROUP BY
+    state
+ORDER BY
+    fatalities_count DESC
+LIMIT 10;
+
+
+Excetuable solution:-
+-------------------
+select state, count(id) as total from fatalities_cleaned 
+where lower(description) like '%shot%' 
+group by state 
+order by total desc 
+limit 10
+
+
+10. What is the total number of shooting deaths per year?
+
+SELECT
+    EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS year,
+    COUNT(*) AS shooting_deaths
+FROM
+    fatalities_cleaned
+WHERE
+    description LIKE '%shooting%'
+GROUP BY
+    year
+ORDER BY
+    year;
+
+(or)
+
+SELECT 
+   EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS yr, 
+   count(1) as total 
+FROM
+   fatalities_cleaned 
+WHERE
+   lower(description) like '%shot%'
+GROUP BY 
+yr 
+ORDER BY
+yr desc
