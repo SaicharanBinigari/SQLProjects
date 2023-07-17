@@ -111,8 +111,8 @@ ORDER BY
 LIMIT 10;
 
 
-Excetuable solution:-
--------------------
+Executed Scenario:-
+--------------------
 select state, count(id) as total from fatalities_cleaned 
 where lower(description) like '%shot%' 
 group by state 
