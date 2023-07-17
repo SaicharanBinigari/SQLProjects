@@ -5,42 +5,37 @@ FROM fatalities_cleaned;
 
 2. What is the year to year change for the number of fatal incidents?
 
+WITH cte AS (
+    SELECT
+        YEAR(incident_date) AS dt,
+        COUNT(1) AS total_incidents,
+        LAG(COUNT(1)) OVER (ORDER BY YEAR(incident_date)) AS ld
+    FROM
+        fatalities_cleaned
+    WHERE
+        YEAR(incident_date) != '2022'
+    GROUP BY
+        YEAR(incident_date)
+)
 SELECT
-    year,
-    incident_count,
-    lagged_count,
-    ROUND(100 * (incident_count - lagged_count) / lagged_count) AS Pct_change
+    dt,
+    total_incidents,
+    ld,
+    ROUND(100.0 * (total_incidents - ld) / ld)
 FROM
-    (
-        SELECT
-            EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS year,
-            COUNT(*) AS incident_count,
-            LAG(COUNT(*)) OVER (ORDER BY EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y'))) AS lagged_count
-        FROM
-            fatalities_cleaned
-        GROUP BY
-            year
-    ) AS subquery
-WHERE
-    year != '2022'
-ORDER BY
-    year;
-
-Using CTE:-
------------
-with cte as(
-select EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS year, count(1) as total_incidents, LAG(COUNT(*)) OVER (ORDER BY EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y'))) as ld
-from fatalities_cleaned
-where year(incident_date)!= '2022'
-group by year
-select year, total_incidents,ld,round(100.0*(total_incidents-ld)/ld) from cte;
-
+    cte;
 
 3. What is the number of fatalities that received a citation?
 
 SELECT COUNT(id) AS Incidents_count_Citation
 FROM fatalities_cleaned 
 WHERE citation = "yes"
+
+Executed Scenario:-
+--------------------
+SELECT citation, COUNT(id) AS Incidents_count_Citation
+FROM fatalities_cleaned 
+GROUP BY citation
 
 4. What day of the week has the most fatalities and what is the overall percentage?
 
@@ -81,7 +76,7 @@ SELECT state, COUNT(id) AS Incidents_Count
 FROM fatalities_cleaned 
 GROUP BY state 
 ORDER BY Incidents_Count DESC
-LIMIT 5
+LIMIT 5;
 
 8. What are the top 5 states that had the most workplace fatalities from stabbings?
 
@@ -127,28 +122,7 @@ limit 10
 
 10. What is the total number of shooting deaths per year?
 
-SELECT
-    EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS year,
-    COUNT(*) AS shooting_deaths
-FROM
-    fatalities_cleaned
-WHERE
-    description LIKE '%shooting%'
-GROUP BY
-    year
-ORDER BY
-    year;
-
-(or)
-
-SELECT 
-   EXTRACT(YEAR FROM STR_TO_DATE(incident_date, '%m/%d/%Y')) AS yr, 
-   count(1) as total 
-FROM
-   fatalities_cleaned 
-WHERE
-   lower(description) like '%shot%'
-GROUP BY 
-yr 
-ORDER BY
-yr desc
+select year(incident_date) as yr, count(1) as total from fatalities_cleaned
+where lower(description) like '%shot%'
+group by yr
+order by yr desc;
