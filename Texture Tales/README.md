@@ -1,5 +1,4 @@
-
-
+The provided is the Texture Tales Database and it consists of following Tables:
 
 Table: Product Details
 
