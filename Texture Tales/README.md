@@ -40,3 +40,24 @@ product_id (int)
 price (int)
 start_date (date)
 end_date (date)
+
+
+1. What was the total quantity sold for all products?
+2. What is the total generated revenue for all products before 
+discounts?
+3. What was the total discount amount for all products?
+4. What is the total generated revenue for all products after 
+discounts?
+5. How many unique transactions were there?
+6. What are the average unique products purchased in each 
+transaction?
+7. What is the average discount value per transaction?
+8. What is the average revenue for member transactions and nonmember transactions?
+9. What are the top 3 products by total revenue before discount?
+10. What are the total quantity, revenue and discount for each 
+segment?
+11. What is the top selling product for each segment?
+12. What are the total quantity, revenue and discount for each 
+category?
+13. What is the top selling product for each category?
+
