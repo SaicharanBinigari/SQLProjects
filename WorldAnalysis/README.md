@@ -1,4 +1,4 @@
-The provided is the World Data set provided by MySQL consists of three tables: City, Country, and Country Language. 
+This  is the Default World Data set provided by MySQL and it consists of three tables: City, Country, and Country Language. 
 
 **City Table:**
 
