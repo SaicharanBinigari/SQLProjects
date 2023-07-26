@@ -40,5 +40,12 @@ Below are the insights that have been addressed as part of this project:-
 
 1.How many olympics games have been held?
 
-2.
+2.List down all Olympics games held so far. Order the result by year.
+
+3.Mention the total number of nations who participated in each olympics game?. Order the results by games.
+ 
+(Hint: You can group the data by games and region, and then count the number of unique regions in each game to determine the total number of nations participating. Finally, sort the results by games.)
+
+4.
+ 
 
