@@ -46,6 +46,8 @@ Below are the insights that have been addressed as part of this project:-
  
 (Hint: You can group the data by games and region, and then count the number of unique regions in each game to determine the total number of nations participating. Finally, sort the results by games.)
 
-4.
+4. Which nation has participated in all of the olympic games? and order the output by first column which is fetched
+
+5. 
  
 
