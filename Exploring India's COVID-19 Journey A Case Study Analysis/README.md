@@ -1,5 +1,6 @@
 
 **About the project:**
+
 Decoding COVID-19: India's Case Study" is a comprehensive analysis project that utilizes multiple datasets. It explores age-wise distribution, confirmed cases, recoveries, and daily decreases. Additionally, it examines state-wise data on cases, death and recovery status, available hospital beds, testing data, and population distribution. By uncovering insights from these datasets, this study aims to provide a comprehensive understanding of the COVID-19 situation in India, enabling informed decision-making and effective strategies to combat the pandemic.
 
 Dataset overview:
