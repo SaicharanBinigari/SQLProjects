@@ -1,0 +1,39 @@
+State_UT,Confirmed,Recovered,Deaths,Active,Last_updad_time,State_code
+Total,3210,229,86,2895,04-04-2020 14:37,TT
+Maharashtra,537,50,26,461,04-04-2020 14:17,MH
+Tamil Nadu,411,6,1,404,03-04-2020 17:37,TN
+Delhi,386,8,6,372,03-04-2020 23:32,DL
+Kerala,295,42,2,251,03-04-2020 19:07,KL
+Telangana,229,32,11,186,03-04-2020 20:27,TG
+Rajasthan,198,3,0,195,04-04-2020 14:27,RJ
+Uttar Pradesh,174,17,2,155,03-04-2020 23:57,UP
+Andhra Pradesh,180,2,1,177,03-04-2020 23:32,AP
+Madhya Pradesh,154,0,8,146,03-04-2020 23:52,MP
+Karnataka,128,11,4,113,03-04-2020 23:42,KA
+Gujarat,105,10,9,86,04-04-2020 14:27,GJ
+Jammu and Kashmir,78,3,2,73,04-04-2020 14:17,JK
+Haryana,58,27,0,31,03-04-2020 20:27,HR
+West Bengal,53,3,6,44,02-04-2020 18:32,WB
+Punjab,57,1,5,51,04-04-2020 14:37,PB
+Bihar,31,3,1,27,03-04-2020 21:12,BR
+Assam,25,0,0,25,04-04-2020 14:37,AS
+Odisha,20,2,0,18,03-04-2020 23:42,OR
+Chandigarh,18,0,0,18,02-04-2020 18:57,CH
+Uttarakhand,16,2,0,14,03-04-2020 21:47,UT
+Ladakh,14,3,0,11,27-03-2020 11:52,LA
+Andaman and Nicobar Islands,10,0,0,10,30-03-2020 11:27,AN
+Chhattisgarh,9,3,0,6,31-03-2020 23:07,CT
+Himachal Pradesh,6,1,2,3,03-04-2020 17:17,HP
+Goa,7,0,0,7,04-04-2020 09:42,GA
+Puducherry,5,0,0,5,03-04-2020 02:37,PY
+Jharkhand,2,0,0,2,02-04-2020 19:42,JH
+Manipur,2,0,0,2,02-04-2020 09:42,MN
+Mizoram,1,0,0,1,26-03-2020 07:19,MZ
+Arunachal Pradesh,1,0,0,1,02-04-2020 11:42,AR
+Dadra and Nagar Haveli,0,0,0,0,26-03-2020 07:19,DN
+Daman and Diu,0,0,0,0,26-03-2020 07:19,DD
+Lakshadweep,0,0,0,0,26-03-2020 07:19,LD
+Meghalaya,0,0,0,0,26-03-2020 07:19,ML
+Nagaland,0,0,0,0,26-03-2020 07:19,NL
+Sikkim,0,0,0,0,26-03-2020 07:19,SK
+Tripura,0,0,0,0,26-03-2020 07:19,TR
