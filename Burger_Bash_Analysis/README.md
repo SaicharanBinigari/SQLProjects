@@ -8,9 +8,13 @@ Headquarters and also maxed out my credit card to pay freelance developers to bu
 Below are the Data tables that are used followed with the Insights that have been found out as part of this project.
 
 DATA TABLES:- 
+
 burger_names
+
 runner_orders
+
 burger_runner
+
 customer_orders
 
 CASE STUDY QUESTIONS
