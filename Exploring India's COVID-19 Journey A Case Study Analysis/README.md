@@ -3,7 +3,7 @@
 
 Decoding COVID-19: India's Case Study" is a comprehensive analysis project that utilizes multiple datasets. It explores age-wise distribution, confirmed cases, recoveries, and daily decreases. Additionally, it examines state-wise data on cases, death and recovery status, available hospital beds, testing data, and population distribution. By uncovering insights from these datasets, this study aims to provide a comprehensive understanding of the COVID-19 situation in India, enabling informed decision-making and effective strategies to combat the pandemic.
 
-Dataset overview:
+**Dataset overview:**
 The agedistribution_2016_estimates that has age wise distribution.
 
 The datewisepatients that has the number of cases date wise in each state.
@@ -16,10 +16,11 @@ The icmrtestingdata that has data of number of sample tested.
 
 The statewisedata that has state wise data of positive and recovered cases.
 
-Module 1: Cleaning the dataset
-Module 2: Run SQL queries 
+**Module 1:** Cleaning the dataset
 
-Data Preprocessing:
+**Module 2:** Run SQL queries 
+
+**Data Preprocessing:**
 To begin the project, the first step is to preprocess the available datasets. There are six datasets in total, out of which four datasets require cleaning, while the remaining two are already in suitable condition. Initially, we will focus on making the necessary changes and cleaning the four datasets using Python. Once the cleaning process is complete, we will upload all six datasets, including the four cleaned datasets, into the database. This will enable us to proceed with SQL tasks and further analysis for the project.
 
 Data Cleaning for agedistribution_2016_estimates.csv:
